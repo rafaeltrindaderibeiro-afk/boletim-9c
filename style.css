@@ -81,6 +81,75 @@ body {
   color: #ff2a2a;
 }
 
+/* ===== ÁREA DE GRÁFICOS ===== */
+.area-graficos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.grafico-card {
+  background-color: #000000;
+  border: 1px solid #333;
+  border-top: 4px solid #d40000;
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(212, 0, 0, 0.15);
+}
+
+.grafico-cabecalho-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.grafico-card h2 {
+  font-size: 1.1rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.grafico-cabecalho-card h2 {
+  margin-bottom: 0;
+}
+
+.grafico-container {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  flex-grow: 1;
+}
+
+/* Badge de Perigo */
+.badge-perigo {
+  background-color: #d40000;
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: pulse-perigo 1.5s infinite;
+}
+
+.grafico-card.card-perigo {
+  border-color: #ff1a1a;
+  box-shadow: 0 4px 16px rgba(255, 26, 26, 0.4);
+}
+
+@keyframes pulse-perigo {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
 /* ===== TABELA ===== */
 .area-tabela {
   overflow-x: auto;
@@ -311,6 +380,26 @@ body {
 }
 
 /* ===== RESPONSIVO ===== */
+@media (max-width: 1024px) {
+  .area-graficos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  #card-grafico-faltas {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .area-graficos {
+    grid-template-columns: 1fr;
+  }
+
+  #card-grafico-faltas {
+    grid-column: span 1;
+  }
+}
+
 @media (max-width: 600px) {
   .cabecalho h1 {
     font-size: 1.6rem;
